@@ -1,7 +1,10 @@
 const handleSignin = (db,bcrypt) => (req,res) => {
+          console.log('Entrou no signin');
+
   const {email, password} = req.body;
   if(!email || !password){
     return res.status(400).json('incorrect form submission');
+              console.log('Entrou no if');
   }
   db.select('email','hash').from('login')
   .where('email','=',email)
