@@ -24,8 +24,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req,res) => {res.send(database.users);})
-app.post('/signin', (req, res) => {signin.handleSignin(database,bcrypt)});
+app.get('/', (req,res) => {res.send(database.users)})
+app.post('/signin', signin.handleSignin(database,bcrypt));
 //create new user
 app.post('/register', (req,res) => {register.handleRegister(req,res,database,bcrypt)});
 app.get('/profile/:id',(req,res) => {profile.handleProfileGet(req,res,database)});
